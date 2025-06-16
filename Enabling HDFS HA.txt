@@ -147,7 +147,5 @@ name in the Search box.
 
 8. Goto Instances > JobHistory Server > Restart the JobHistory Server role.
 
-5. Select Actions > Start.
 
-6. Restart the Hue, oozie and Hive on Tez services if you stopped them prior to
-updating the metastore.
+
