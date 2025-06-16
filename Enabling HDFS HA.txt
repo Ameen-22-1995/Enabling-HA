@@ -77,6 +77,76 @@ command.
 4. Select Actions > Update Hive Metastore NameNodes and confirm the
 command.
 
+Enabling Hive Metastore High
+Availability
+
+1. Go to the Hive service.
+
+2. If you have a secure cluster, enable the Hive token store. Non-secure clusters
+can skip this step. If more than one role group applies to this configuration,
+edit the value for the appropriate role group.
+a. Click the Configuration tab.
+b. Select Scope > Hive Metastore Server.
+c. Select Category > Advanced.
+d. Locate the Hive Metastore Delegation Token Store property or search
+for it by typing its name In the Search box.
+e. Select org.apache.hadoop.hive.thrift.DBTokenStore.
+f. Click Save Changes to commit the changes.
+
+3. Click the Instances tab.
+
+4. Click Add Role Instances.
+
+5. Click the text field under Hive Metastore Server.
+
+6. Check the box by the host on which to run the additional metastore and
+click OK.
+
+7. Click Continue and click Finish.
+
+8. Check the box by the new Hive Metastore Server role.
+
+9. Select Actions for Selected > Start, and click Start to confirm.
+
+10.Click Close and click to display the stale configurations page.
+
+11.Click Restart Stale Services and click Restart Now.
+
+12.Click Finish after the cluster finishes restarting.
+
+
+Enabling Resource
+Manager HA
+
+1. Go to the YARN service.
+
+2. Select Actions > Enable High Availability. A screen showing the hosts that are
+eligible to run a standby ResourceManager displays.
+
+3. Select the host where you want the standby ResourceManager to be installed,
+and click Continue.
+
+ResourceManager HA doesn't affect the JobHistory Server (JHS). JHS doesn't
+maintain any state, so if the host fails you can simply assign it to a new host. You
+can also enable process auto-restart by doing the following:
+
+1. Go to the YARN service.
+
+2. Click the Configuration tab.
+
+3. Select Scope > JobHistory Server.
+
+4. Select Category > Advanced.
+
+5. Locate the Automatically Restart Process property or search for it by typing its
+name in the Search box.
+
+6. Click Edit Individual Values
+
+7. Select the JobHistory Server Default Group.
+
+8. Goto Instances > JobHistory Server > Restart the JobHistory Server role.
+
 5. Select Actions > Start.
 
 6. Restart the Hue, oozie and Hive on Tez services if you stopped them prior to
